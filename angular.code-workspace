@@ -1,0 +1,34 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "html.format.enable": false,
+    "files.watcherExclude": {
+      "**/dist/**": true
+    },
+    "search.exclude": {
+      "**/dist": true
+    },
+    "css.validate": false,
+    "scss.validate": false,
+    "typescript.preferences.quoteStyle": "single",
+    "typescript.updateImportsOnFileMove.enabled": "always"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.vscode-typescript-tslint-plugin",
+      "angular.ng-template",
+      "msjsdiag.debugger-for-chrome",
+      "AngularDoc.angulardoc-vscode",
+      "gkalpak.aio-docs-utils",
+      "ms-azuretools.vscode-docker",
+      "eamodio.gitlens",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "donjayamanne.githistory"
+    ]
+  }
+}

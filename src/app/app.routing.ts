@@ -3,8 +3,8 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { AdminLayoutComponent } from './module/admin-layout/admin-layout.component';
+import { AuthLayoutComponent } from './module/auth-layout/auth-layout.component';
 
 const routes: Routes =[
   {
@@ -17,8 +17,8 @@ const routes: Routes =[
     children: [
       {
         path: '',
-         loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule) 
-        // loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+         loadChildren: () => import('./module/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule) 
+        
       }
     ]
   }, {
@@ -27,7 +27,7 @@ const routes: Routes =[
     children: [
       {
         path: '',
-        loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
+        loadChildren: () =>import( './module/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
       }
     ]
   }, {

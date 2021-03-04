@@ -6,6 +6,10 @@ import { AuthLayoutRoutes } from './auth-layout.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { RestPasswordComponent } from './rest-password/rest-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+
 
 @NgModule({
   imports: [
@@ -17,7 +21,10 @@ import { RegisterComponent } from './register/register.component';
   ],
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgetPasswordComponent,
+    RestPasswordComponent,
+    VerifyEmailComponent
   ]
 })
 export class AuthLayoutModule { }

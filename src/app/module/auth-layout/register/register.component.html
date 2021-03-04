@@ -21,46 +21,34 @@
   <div class="row justify-content-center">
     <div class="col-lg-6 col-md-8">
       <div class="card bg-secondary shadow border-0">
-        <!-- <div class="card-header bg-transparent pb-5">
-          <div class="text-muted text-center mt-2 mb-4"><small>Sign up with</small></div>
-          <div class="text-center">
-            <a href="javascript:void(0)" class="btn btn-neutral btn-icon mr-4">
-              <span class="btn-inner--icon"><img src="assets/img/icons/common/github.svg"></span>
-              <span class="btn-inner--text">Github</span>
-            </a>
-            <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
-              <span class="btn-inner--icon"><img src="assets/img/icons/common/google.svg"></span>
-              <span class="btn-inner--text">Google</span>
-            </a>
-          </div>
-        </div> -->
+        
         <div class="card-body px-lg-5 py-lg-5">
           <!-- <div class="text-center text-muted mb-4">
             <small>Or sign up with credentials</small>
           </div> -->
           <form  [formGroup]="registraionForm">
-              <div class="form-group">
-                  <div class="input-group input-group-alternative mb-3">     
-            <label class="hoverable" for="fileInput">
-                <img [src]="url ? url : '../../assets/default.png'"> 
-                <div class="hover-text">Choose file</div>
-                <!-- <div class="background"></div> -->
-              </label>
-              <input  class="form-control" id="fileInput" type='file'accept="image/*" (change)="onSelectFile($event)">
-              <!-- <button *ngIf="url" (click)="delete()" >delete</button> -->
-  
-                  </div>
-                </div>
+              <h1 class="text-primary" style="text-align: center;">Registration Form</h1>
+              <!-- <div class="form-group"> -->
+                  <!-- <div class="input-group input-group-alternative mb-3">      -->
+                    <!-- <label class="hoverable" for="fileInput"> -->
+                    <!-- <img [src]="url ? url : '../../assets/default.png'">  -->
+                    <!-- <div class="hover-text">Choose file</div> -->
+                    <!-- <div class="background"></div> -->
+                     <!-- </label> -->
+                    <!-- <input  class="form-control" id="fileInput" type='file'accept="image/*" (change)="onSelectFile($event)"> -->
+                    <!-- <button *ngIf="url" (click)="delete()" >delete</button> -->
+                  <!-- </div> -->
+              <!-- </div> -->
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input class="form-control" placeholder="First Name"formControlName="firstname" type="text">
+                <input class="form-control" placeholder="First Name"formControlName="firstName" type="text">
               </div>
-              <div *ngIf="registraionForm.get('firstname').invalid && (registraionForm.get('firstname').dirty||registraionForm.get('firstname').touched) && registraionForm.get('firstname').errors">
-                  <small *ngIf="registraionForm.get('firstname').errors?.required" class="err">Please Fill required field<br></small>
-                   <small *ngIf="!registraionForm.get('firstname').errors?.required" class="err">Invalid Name</small> 
+              <div *ngIf="registraionForm.get('firstName').invalid && (registraionForm.get('firstName').dirty||registraionForm.get('firstName').touched) && registraionForm.get('firstName').errors">
+                  <small *ngIf="registraionForm.get('firstName').errors?.required" class="err">Please Fill required field<br></small>
+                   <small *ngIf="!registraionForm.get('firstName').errors?.required" class="err">Invalid Name</small> 
              </div>
             </div>
             <div class="form-group">
@@ -68,11 +56,11 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input class="form-control" placeholder="Last Name" formControlName="lastname" type="text">
+                <input class="form-control" placeholder="Last Name" formControlName="lastName" type="text">
               </div>
-              <div *ngIf="registraionForm.get('lastname').invalid && (registraionForm.get('lastname').dirty||registraionForm.get('lastname').touched) && registraionForm.get('lastname').errors">
-                  <small *ngIf="registraionForm.get('lastname').errors?.required" class="err">Please Fill required field<br></small>
-                   <small *ngIf="!registraionForm.get('lastname').errors?.required" class="err">Invalid Name</small> 
+              <div *ngIf="registraionForm.get('lastName').invalid && (registraionForm.get('lastName').dirty||registraionForm.get('lastName').touched) && registraionForm.get('lastName').errors">
+                  <small *ngIf="registraionForm.get('lastName').errors?.required" class="err">Please Fill required field<br></small>
+                   <small *ngIf="!registraionForm.get('lastName').errors?.required" class="err">Invalid Name</small> 
              </div>
             </div>
             <div class="form-group">
@@ -115,10 +103,8 @@
             <div class="row my-4">
               <div class="col-12">
                 <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                  <label class="custom-control-label" for="customCheckRegister">
-                    <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
-                  </label>
+                  <input class="custom-control-input" id="customCheckRegister" type="checkbox" formControlName="acceptTerms" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }">
+                  <label class="custom-control-label" for="customCheckRegister">Accept Terms & Conditions</label>
                 </div>
               </div>
             </div>
@@ -126,6 +112,14 @@
               <button type="button" class="btn btn-primary mt-4" (click)="createAccount()">Create account</button>
             </div>
           </form>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-6">
+          <a  class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/forget-password']" class="text-light"><small>Forgot password?</small></a>
+        </div>
+        <div class="col-6 text-right">
+          <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/login']" class="text-light"><small>Already have account</small></a>
         </div>
       </div>
     </div>

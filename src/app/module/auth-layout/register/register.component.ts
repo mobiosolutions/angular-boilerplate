@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmailValidator,passValidator,PhoneValidator,NameValidator} from '../../../shared/validation';
-import { register } from '../../../shared/models/register.models';
 import { first } from 'rxjs/operators';
 import { AlertService, AccountService,} from '../../../shared/services';
 

@@ -14,9 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { fakeBackendProvider } from './helpers';
 // import { appRoutingModule } from './app.routing';
 import { JwtInterceptor, ErrorInterceptor,appInitializer} from './helpers';
-// import { HomeComponent } from './home';
 import { AlertComponent } from './component/alert/alert.component';
-import { HomeComponent } from './home/home/home.component'
 import { AccountService } from '../app/shared/services';
 
 
@@ -29,7 +27,7 @@ import { AccountService } from '../app/shared/services';
      AuthLayoutComponent,
      AdminLayoutComponent,
       AlertComponent,
-      HomeComponent
+     
     ],
   imports: [
     BrowserModule,

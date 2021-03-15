@@ -10,6 +10,7 @@ import {AccountService } from '../../services';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  account = this.accountService.accountValue;
   public focus;
   public listTitles: any[];
   public location: Location;

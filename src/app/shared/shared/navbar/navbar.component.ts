@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import {AccountService } from '../../services';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  account = this.accountService.accountValue;
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  constructor(location: Location,  private element: ElementRef, 
+    private router: Router,
+    private accountService:AccountService) {
     this.location = location;
   }
 
@@ -32,5 +36,8 @@ export class NavbarComponent implements OnInit {
     }
     return 'Dashboard';
   }
-
+  logout() {
+    this.accountService.logout();
+    this.router.navigate(['/login']);
+}
 }

@@ -12,11 +12,14 @@ import { AccountService} from '../../../shared/services';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit{
+  //current logdinuser
   account = this.accountService.accountValue;
-
+  registerAccount:any=[];
   constructor(private accountService:AccountService) { }
   ngOnInit() {
-    // this.loadAllUsers();
+    this.accountService.getAll().subscribe(res =>{
+      this.registerAccount = res;
+    });
 
   }
 
